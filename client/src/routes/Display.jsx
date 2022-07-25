@@ -13,6 +13,7 @@ const DisplayContainer = styled.div`
 
 function Display() {
   const { data } = useGetDraftsQuery()
+  if (!data) return null
   return (
     <DisplayContainer>
       {data.map((draft, i) => (
