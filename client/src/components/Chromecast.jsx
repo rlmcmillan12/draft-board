@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 function Chromecast() {
   var applicationID = '2DD3B141'
@@ -7,16 +7,18 @@ function Chromecast() {
   const chrome = window.chrome
   const [isCasting, setIsCasting] = useState(false)
 
-  if (!chrome.cast || !chrome.cast.isAvailable) {
-    setTimeout(initializeCastApi, 1000)
-  }
-
-  function initializeCastApi() {
-    var sessionRequest = new chrome.cast.SessionRequest(applicationID)
-    var apiConfig = new chrome.cast.ApiConfig(sessionRequest, sessionListener, receiverListener)
-
-    chrome.cast.initialize(apiConfig, onInitSuccess, onError)
-  }
+  useEffect(() => {
+    initializeCastApi()
+    function initializeCastApi() {
+      if (!chrome.cast || !chrome.cast.isAvailable) {
+        setTimeout(initializeCastApi, 1000)
+        return
+      }
+      var sessionRequest = new chrome.cast.SessionRequest(applicationID)
+      var apiConfig = new chrome.cast.ApiConfig(sessionRequest, sessionListener, receiverListener)
+      chrome.cast.initialize(apiConfig, onInitSuccess, onError)
+    }
+  }, [applicationID, chrome.cast, sessionListener])
 
   function onInitSuccess() {
     console.log('onInitSuccess')
@@ -77,7 +79,7 @@ function Chromecast() {
     console.log('connect()')
     sendMessage({
       type: 'load',
-      url: 'https://github.com/boombatower/chromecast-dashboard/blob/gh-pages/sender/main.js',
+      url: 'https://draft-board-rlm.herokuapp.com/display',
       refresh: '60',
     })
   }
