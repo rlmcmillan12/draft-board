@@ -7,8 +7,9 @@ const store = require('./lib/session-store')
 const serialize = require('./middleware/serialize')
 
 // router imports
-const indexRouter = require('./routes/index')
+const beersRouter = require('./routes/beers')
 const usersRouter = require('./routes/users')
+const draftsRouter = require('./routes/drafts')
 
 // configure express app
 const app = express()
@@ -28,6 +29,7 @@ app.use(
     store: store,
   })
 )
+
 // serialize database user from session if present
 app.use(serialize())
 
@@ -35,8 +37,9 @@ app.use(serialize())
 app.use(express.static(path.join(__dirname, 'client/build')))
 
 // api routes
-app.use('/api/v1', indexRouter)
+app.use('/api/v1/beers', beersRouter)
 app.use('/api/v1/users', usersRouter)
+app.use('/api/v1/drafts', draftsRouter)
 
 // redirect all other routes to react client so that react-router can handle them
 app.use('*', (req, res) => {
