@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 function Chromecast() {
   var applicationID = '2DD3B141'
-  var namespace = 'urn:x-cast:com.boombatower.chromecast-dashboard'
+  var namespace = 'urn:x-cast:com.herokuapp.draft-board-rlm'
   var session = useRef()
   const chrome = window.chrome
   const [isCasting, setIsCasting] = useState(false)
