@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 function Chromecast() {
   var applicationID = '2DD3B141'
-  var namespace = 'urn:x-cast:com.herokuapp.draft-board-rlm'
+  var namespace = 'urn:x-cast:com.herokuapp.draftboardrlm'
   var session = useRef()
   const chrome = window.chrome
   const [isCasting, setIsCasting] = useState(false)
@@ -44,14 +44,15 @@ function Chromecast() {
 
   function sessionListener(e) {
     console.log('New session ID: ' + e.sessionId)
-    session = e
-    session.addUpdateListener(sessionUpdateListener)
+    session.current = e
+    session.current.addUpdateListener(sessionUpdateListener)
   }
 
   function sessionUpdateListener(isAlive) {
-    console.log((isAlive ? 'Session Updated' : 'Session Removed') + ': ' + session.sessionId)
+    console.log((isAlive ? 'Session Updated' : 'Session Removed') + ': ' + session.current.sessionId)
     if (!isAlive) {
-      session = null
+      session.current = null
+      setIsCasting(false)
     }
   }
 
@@ -61,10 +62,13 @@ function Chromecast() {
 
   function sendMessage(message) {
     if (session.current != null) {
+      console.log('exhisting session')
       session.current.sendMessage(namespace, message, onSuccess.bind(this, message), onError)
     } else {
+      console.log('new session')
       chrome.cast.requestSession(function (e) {
         session.current = e
+        console.log(e)
         sessionListener(e)
         session.current.sendMessage(namespace, message, onSuccess.bind(this, message), onError)
       }, onError)
@@ -72,7 +76,7 @@ function Chromecast() {
   }
 
   function stopApp() {
-    session.stop(onStopAppSuccess, onError)
+    session.current.stop(onStopAppSuccess, onError)
   }
 
   function connect() {
@@ -83,8 +87,6 @@ function Chromecast() {
       refresh: '60',
     })
   }
-
-  //TODO stopApp on click handle
 
   return (
     <div>
