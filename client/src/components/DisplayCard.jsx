@@ -29,7 +29,7 @@ const Stats = styled.div`
   display: flex;
   width: 75%;
   justify-content: space-around;
-  padding-bottom: 8px;
+  padding-top: 8px;
   font-size: 0.8em;
 `
 const ABV = styled.div``
