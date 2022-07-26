@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import Footer from '../components/Footer'
 import LoginForm from '../components/LoginForm'
+import PrimaryNav from '../components/PrimaryNav'
 
 const LoginContainer = styled.div`
   height: 100vh;
@@ -8,9 +10,13 @@ const LoginContainer = styled.div`
 
 function Login() {
   return (
-    <LoginContainer>
-      <LoginForm />
-    </LoginContainer>
+    <>
+      <PrimaryNav />
+      <LoginContainer>
+        <LoginForm />
+      </LoginContainer>
+      <Footer />
+    </>
   )
 }
 

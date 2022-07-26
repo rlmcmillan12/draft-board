@@ -6,6 +6,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 45%;
+  height: 11%;
   padding-left: 50px;
   border: 2px solid black;
   margin: 4px;

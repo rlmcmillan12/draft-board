@@ -83,7 +83,7 @@ function PrimaryNav() {
       <PrimaryNavContainer>
         <LinkDiv>
           <Link to="/">Home</Link>
-          <Link to="/about">Drafts</Link>
+          <Link to="/drafts">Drafts</Link>
           <Link to="/contact">Contact</Link>
         </LinkDiv>
         <LogoDiv>

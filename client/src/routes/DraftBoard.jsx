@@ -30,52 +30,54 @@ function DraftBoard() {
 
   if (isLoading || isError) return null
   return (
-    <DBContainer>
+    <>
       <PrimaryNav />
-      <h1>Hello {user.username}</h1>
-      <h3>What's on draft?</h3>
-      <Table>
-        <thead>
-          <TR>
-            <th>Tap #</th>
-            <th>Name</th>
-            <th>Style</th>
-            <th>ABV</th>
-            <th>IBU</th>
-            <th>Color</th>
-          </TR>
-        </thead>
-        <tbody>
-          {data.map((draft, i) => (
-            <TR key={i}>
-              <td>{i + 1}</td>
-              <td>{draft.name}</td>
-              <td>{draft.style}</td>
-              <td>{draft.abv}</td>
-              <td>{draft.ibu}</td>
-              <td>{draft.color}</td>
+      <DBContainer>
+        <h1>Hello {user.username}</h1>
+        <h3>What's on draft?</h3>
+        <Table>
+          <thead>
+            <TR>
+              <th>Tap #</th>
+              <th>Name</th>
+              <th>Style</th>
+              <th>ABV</th>
+              <th>IBU</th>
+              <th>Color</th>
             </TR>
-          ))}
-        </tbody>
-      </Table>
-      <Chromecast />
-      <DraftBoardEditDraft />
-      {user.admin === 'manager' && (
-        <>
-          <DraftBoardUpdateBeer />
-          <DraftBoardAddBeer />
-        </>
-      )}
-      {user.admin === 'admin' && (
-        <>
-          <DraftBoardAddBeer />
-          <DraftBoardUpdateBeer />
-          <NewUser />
-        </>
-      )}
-      <Link to="/display">Display</Link>
+          </thead>
+          <tbody>
+            {data.map((draft, i) => (
+              <TR key={i}>
+                <td>{i + 1}</td>
+                <td>{draft.name}</td>
+                <td>{draft.style}</td>
+                <td>{draft.abv}</td>
+                <td>{draft.ibu}</td>
+                <td>{draft.color}</td>
+              </TR>
+            ))}
+          </tbody>
+        </Table>
+        <Chromecast />
+        <DraftBoardEditDraft />
+        {user.admin === 'manager' && (
+          <>
+            <DraftBoardUpdateBeer />
+            <DraftBoardAddBeer />
+          </>
+        )}
+        {user.admin === 'admin' && (
+          <>
+            <DraftBoardAddBeer />
+            <DraftBoardUpdateBeer />
+            <NewUser />
+          </>
+        )}
+        <Link to="/display">Display</Link>
+      </DBContainer>
       <Footer />
-    </DBContainer>
+    </>
   )
 }
 

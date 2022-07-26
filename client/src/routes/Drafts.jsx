@@ -16,13 +16,15 @@ function Drafts() {
   const { data } = useGetDraftsQuery()
   if (!data) return null
   return (
-    <AboutContainer>
+    <>
       <PrimaryNav />
-      {data?.map((draft, i) => (
-        <DisplayCard key={i} draft={draft} />
-      ))}
+      <AboutContainer>
+        {data?.map((draft, i) => (
+          <DisplayCard key={i} draft={draft} />
+        ))}
+      </AboutContainer>
       <Footer />
-    </AboutContainer>
+    </>
   )
 }
 

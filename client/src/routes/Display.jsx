@@ -7,9 +7,10 @@ const DisplayContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 100vh;
   align-items: center;
+  justify-content: space-around;
   width: 100vw;
+  height: 100vh;
 `
 
 function Display() {
