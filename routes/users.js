@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
 const models = require('../models')
+const ShortUniqueId = require('short-unique-id')
 
 // GET /api/v1/users/register
 router.post('/register', async (req, res) => {
@@ -22,7 +23,8 @@ router.post('/register', async (req, res) => {
   // hash password
   const hash = await bcrypt.hash(password, 10)
   // create new user in database and send success message
-  const user = await models.User.create({ username: username, password: hash, admin: admin })
+  const uid = new ShortUniqueId()
+  const user = await models.User.create({ username: username, password: hash, admin: admin, token: uid })
   res.json({ success: 'registered successfully' })
 })
 

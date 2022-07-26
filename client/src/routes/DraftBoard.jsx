@@ -9,8 +9,13 @@ import DraftBoardAddBeer from '../components/DraftBoardAddBeer'
 import NewUser from '../components/NewUser'
 import Chromecast from '../components/Chromecast'
 
-const DBContainer = styled.div``
-const Table = styled.table``
+const DBContainer = styled.div`
+  padding: 15px;
+  width: 100vw;
+`
+const Table = styled.table`
+  width: 100%;
+`
 const TR = styled.tr`
   & th:last-child {
     background-color: ${(props) => props.srmHex};

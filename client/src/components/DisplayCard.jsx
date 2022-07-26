@@ -46,6 +46,8 @@ const ColorBox = styled.div`
   color: ${(props) => props.fontColor};
   margin-left: 5px;
   align-items: center;
+  font-size: 0.8em;
+  border-radius: 2px;
 `
 function fontColorPicker(srm) {
   if (srm > 18.5) return 'white'

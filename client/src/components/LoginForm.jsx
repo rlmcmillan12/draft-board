@@ -3,7 +3,25 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { useLoginMutation } from '../redux/services/user'
 
-const LoginFormContainer = styled.div``
+const LoginFormContainer = styled.div`
+  width: 100vw;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  & form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  & div {
+    display: flex;
+    justify-content: space-around;
+  }
+  & button {
+    align-self: center;
+    margin-top: 20px;
+  }
+`
 
 function LoginForm() {
   const navigate = useNavigate()
@@ -29,24 +47,30 @@ function LoginForm() {
   return (
     <LoginFormContainer>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          required
-          value={form.username}
-          onChange={(e) => updateField('username', e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="text"
-          name="password"
-          id="password"
-          required
-          value={form.password}
-          onChange={(e) => updateField('password', e.target.value)}
-        />
+        <div>
+          <label htmlFor="username">
+            Username:{' '}
+            <input
+              type="text"
+              name="username"
+              id="username"
+              required
+              value={form.username}
+              onChange={(e) => updateField('username', e.target.value)}
+            />
+          </label>
+          <label htmlFor="password">
+            Password:{' '}
+            <input
+              type="text"
+              name="password"
+              id="password"
+              required
+              value={form.password}
+              onChange={(e) => updateField('password', e.target.value)}
+            />
+          </label>
+        </div>
         <button type="submit">Login</button>
       </form>
     </LoginFormContainer>

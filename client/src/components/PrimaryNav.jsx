@@ -4,15 +4,54 @@ import { useGetCurrentUserQuery, useLogoutMutation } from '../redux/services/use
 
 const PrimaryNavContainer = styled.nav`
   display: flex;
+  background-image: url(./navBackground.jpg);
+  background-position: center;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1.5px solid #000000c4;
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+  & a:hover {
+    color: red;
+  }
+`
+const LinkDiv = styled.div`
+  width: 33%;
+  display: flex;
+  justify-content: space-around;
+  align-self: flex-end;
+  padding-bottom: 15px;
+`
+const LogoDiv = styled.div`
+  width: 33%;
+  display: flex;
+  justify-content: center;
+`
+const LogoImage = styled.img`
+  width: 280px;
+`
+const BlankDiv = styled.div`
+  width: 33%;
+`
+const UserDiv = styled.div`
+  width: 33%;
+  display: flex;
+  justify-content: space-around;
+  align-self: flex-end;
+  padding-bottom: 15px;
 `
 const LogOutButton = styled.button`
   background-color: transparent;
   border: none;
+  padding: 0;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
   &:hover {
-    box-shadow: 5px 5px 5px 2px #000000;
-    background-color: #0000004b;
+    color: red;
   }
 `
 
@@ -27,23 +66,33 @@ function PrimaryNav() {
   if (!data) {
     return (
       <PrimaryNavContainer>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+        <LinkDiv>
+          <Link to="/">Home</Link>
+          <Link to="/drafts">Drafts</Link>
+          <Link to="/contact">Contact</Link>
+        </LinkDiv>
+        <LogoDiv>
+          <LogoImage src="./allLagerLogo.png" alt="all lager brewing logo" />
+        </LogoDiv>
+        <BlankDiv></BlankDiv>
       </PrimaryNavContainer>
     )
   }
   if (data) {
     return (
       <PrimaryNavContainer>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/DraftBoard">DraftBoard</Link>
-        <div>
-          <span>hello {data.username}</span>
+        <LinkDiv>
+          <Link to="/">Home</Link>
+          <Link to="/about">Drafts</Link>
+          <Link to="/contact">Contact</Link>
+        </LinkDiv>
+        <LogoDiv>
+          <LogoImage src="./allLagerLogo.png" alt="all lager brewing logo" />
+        </LogoDiv>
+        <UserDiv>
+          <Link to="/DraftBoard">DraftBoard</Link>
           <LogOutButton onClick={handleLogout}>Logout</LogOutButton>
-        </div>
+        </UserDiv>
       </PrimaryNavContainer>
     )
   }

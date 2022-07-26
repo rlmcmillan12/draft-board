@@ -11,6 +11,7 @@ module.exports = {
           admin: 'admin',
           createdAt: new Date(),
           updatedAt: new Date(),
+          token: '',
         },
         {
           username: 'manager',
@@ -18,6 +19,7 @@ module.exports = {
           admin: 'manager',
           createdAt: new Date(),
           updatedAt: new Date(),
+          token: '',
         },
         {
           username: 'user',
@@ -25,6 +27,7 @@ module.exports = {
           admin: 'user',
           createdAt: new Date(),
           updatedAt: new Date(),
+          token: '',
         },
       ],
       {}

@@ -19,9 +19,8 @@ window.onload = function () {
   castReceiverManager.onSenderDisconnected = function (event) {
     console.log('Received Sender Disconnected event: ' + event.senderId)
   }
-
   window.messageBus = window.castReceiverManager.getCastMessageBus(
-    'urn:x-cast:com.herokuapp.draftboardrlm',
+    'urn:x-cast:com.boombatower.chromecast-dashboard',
     cast.receiver.CastMessageBus.MessageType.JSON
   )
 

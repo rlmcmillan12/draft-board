@@ -1,6 +1,0 @@
-.App {
-  --color-a: rgb(63, 201, 128);
-  --color-b: rgb(110, 143, 233);
-  min-height: 100vh;
-  background: linear-gradient(to bottom right, var(--color-a), var(--color-b));
-}

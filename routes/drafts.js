@@ -4,7 +4,7 @@ const checkAuth = require('../middleware/checkAuth')
 const models = require('../models')
 
 // GET /api/v1/drafts
-router.get('/', checkAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   const drafts = await models.Draft.findAll({
     order: [['id', 'ASC']],
   })

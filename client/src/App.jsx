@@ -1,4 +1,3 @@
-import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Home from './routes/Home'
@@ -12,10 +11,14 @@ import Footer from './components/Footer'
 import Display from './routes/Display'
 
 const AppContainer = styled.div`
-  --color-a: rgb(63, 201, 128);
-  --color-b: rgb(110, 143, 233);
   min-height: 100vh;
-  background: linear-gradient(to bottom right, var(--color-a), var(--color-b));
+  width: 100vw;
+  background-color: #95c5d8c5;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 function App() {
@@ -25,7 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/drafts" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/draftboard"
@@ -35,14 +38,7 @@ function App() {
             </Protected>
           }
         />
-        <Route
-          path="/display"
-          element={
-            <Protected>
-              <Display />
-            </Protected>
-          }
-        />
+        <Route path="/display" element={<Display />} />
       </Routes>
       <Footer />
     </AppContainer>
