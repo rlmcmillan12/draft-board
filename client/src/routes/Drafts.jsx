@@ -9,11 +9,16 @@ const AboutContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 100%;
   @media (max-width: 720px) {
     flex-direction: column;
     align-items: center;
   }
+`
+const FooterContainer = styled.div`
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
 `
 
 function Drafts() {
@@ -27,7 +32,9 @@ function Drafts() {
           <DisplayCard key={i} draft={draft} />
         ))}
       </AboutContainer>
-      <Footer />
+      <FooterContainer>
+        <Footer />
+      </FooterContainer>
     </>
   )
 }
