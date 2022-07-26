@@ -27,7 +27,6 @@ const Style = styled.span`
 const Stats = styled.div`
   display: flex;
   width: 75%;
-  padding-top: 8px;
   justify-content: space-around;
   padding-bottom: 8px;
   font-size: 0.8em;
