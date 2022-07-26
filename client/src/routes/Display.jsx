@@ -9,6 +9,7 @@ const DisplayContainer = styled.div`
   flex-wrap: wrap;
   max-height: 100vh;
   align-items: center;
+  width: 100vw;
 `
 
 function Display() {
