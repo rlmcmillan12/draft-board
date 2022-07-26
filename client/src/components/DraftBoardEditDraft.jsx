@@ -3,7 +3,15 @@ import styled from 'styled-components'
 import { useUpdateDraftMutation } from '../redux/services/drafts'
 import { useGetBeersQuery } from '../redux/services/beers'
 
-const DBEContainer = styled.div``
+const DBEContainer = styled.div`
+  border: 2px solid black;
+  margin-top: 8px;
+  padding-left: 8px;
+  padding-bottom: 30px;
+  & div {
+    margin: 5px;
+  }
+`
 
 function DraftBoardEditDraft() {
   const { data } = useGetBeersQuery()
@@ -29,10 +37,11 @@ function DraftBoardEditDraft() {
   if (!data) return null
   return (
     <DBEContainer>
-      <h3>Edit Drafts</h3>
+      <h3>Update Draft Board</h3>
       <div>
-        <label htmlFor="tap">Tap to change:</label>
+        <label htmlFor="tap">Tap to change: </label>
         <select name="tap" id="tap" form="draftEdit" onChange={(e) => setTap(e.target.value)}>
+          <option value="null"></option>
           <option value={'1'}>1</option>
           <option value={'2'}>2</option>
           <option value={'3'}>3</option>
@@ -50,16 +59,19 @@ function DraftBoardEditDraft() {
           <option value={'15'}>15</option>
           <option value={'16'}>16</option>
         </select>
-        <label htmlFor="id">Which beer?</label>
+      </div>
+      <div>
+        <label htmlFor="id">Which beer: </label>
         <select name="id" id="id" onChange={handleChange}>
+          <option value={null}></option>
           {data.map((beer, i) => (
             <option key={i} value={beer.id}>
               {beer.name}
             </option>
           ))}
         </select>
-        <button onClick={handleSubmit}>update draft</button>
       </div>
+      <button onClick={handleSubmit}>Update Draft</button>
     </DBEContainer>
   )
 }

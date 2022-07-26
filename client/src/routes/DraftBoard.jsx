@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useGetDraftsQuery } from '../redux/services/drafts'
 import { useGetCurrentUserQuery } from '../redux/services/user'
 import DraftBoardEditDraft from '../components/DraftBoardEditDraft'
@@ -17,9 +17,19 @@ const DBContainer = styled.div`
 `
 const Table = styled.table`
   width: 100%;
+  text-align: center;
 `
 const TR = styled.tr`
-  & th:last-child {
+  border-bottom: 1px solid black;
+  & th {
+    border-bottom: 1px solid black;
+  }
+  & td {
+    border-right: 1px solid #00000077;
+    border-bottom: 1px solid #00000077;
+    padding: 3px;
+  }
+  & td:last-child {
     background-color: ${(props) => props.srmHex};
   }
 `
@@ -33,7 +43,7 @@ function DraftBoard() {
     <>
       <PrimaryNav />
       <DBContainer>
-        <h1>Hello {user.username}</h1>
+        <h1>Hello, {user.username}</h1>
         <h3>What's on draft?</h3>
         <Table>
           <thead>
@@ -60,21 +70,58 @@ function DraftBoard() {
           </tbody>
         </Table>
         <Chromecast />
-        <DraftBoardEditDraft />
+
+        {user.admin === 'user' && <></>}
         {user.admin === 'manager' && (
           <>
-            <DraftBoardUpdateBeer />
-            <DraftBoardAddBeer />
+            <Tabs>
+              <TabList>
+                <Tab mx={10}>Update Draft Board</Tab>
+                <Tab mx={10}>Add Beer to Database</Tab>
+                <Tab mx={10}>Update Beer from Database</Tab>
+              </TabList>
+
+              <TabPanels>
+                <TabPanel>
+                  <DraftBoardEditDraft />
+                </TabPanel>
+                <TabPanel>
+                  <DraftBoardAddBeer />
+                </TabPanel>
+                <TabPanel>
+                  <DraftBoardUpdateBeer />
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
           </>
         )}
         {user.admin === 'admin' && (
           <>
-            <DraftBoardAddBeer />
-            <DraftBoardUpdateBeer />
-            <NewUser />
+            <Tabs>
+              <TabList>
+                <Tab mx={10}>Update Draft Board</Tab>
+                <Tab mx={10}>Add Beer to Database</Tab>
+                <Tab mx={10}>Update Beer from Database</Tab>
+                <Tab mx={10}>Add New User</Tab>
+              </TabList>
+
+              <TabPanels>
+                <TabPanel>
+                  <DraftBoardEditDraft />
+                </TabPanel>
+                <TabPanel>
+                  <DraftBoardAddBeer />
+                </TabPanel>
+                <TabPanel>
+                  <DraftBoardUpdateBeer />
+                </TabPanel>
+                <TabPanel>
+                  <NewUser />
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
           </>
         )}
-        <Link to="/display">Display</Link>
       </DBContainer>
       <Footer />
     </>

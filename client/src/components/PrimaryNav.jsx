@@ -4,12 +4,12 @@ import { useGetCurrentUserQuery, useLogoutMutation } from '../redux/services/use
 
 const PrimaryNavContainer = styled.nav`
   display: flex;
+  flex-wrap: wrap;
   background-image: url(./navBackground.jpg);
   background-position: center;
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
   border-bottom: 1.5px solid #000000c4;
   & a {
     text-decoration: none;

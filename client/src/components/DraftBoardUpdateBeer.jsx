@@ -2,7 +2,23 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useGetBeersQuery, useUpdateBeerMutation } from '../redux/services/beers'
 
-const Container = styled.div``
+const Container = styled.div`
+  border: 2px solid black;
+  margin-top: 8px;
+  padding-left: 8px;
+  padding-bottom: 30px;
+  & table {
+    width: 100%;
+    text-align: center;
+  }
+  & form div {
+    margin: 5px;
+  }
+  & td {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+  }
+`
 
 function DraftBoardUpdateBeer() {
   const [updateBeer] = useUpdateBeerMutation()
@@ -45,62 +61,76 @@ function DraftBoardUpdateBeer() {
   if (!data) return null
   return (
     <Container>
-      <h3>Edit beer from database</h3>
-      <select name="id" id="id" form="beerEdit" onChange={handleChange}>
-        {data.map((beer, i) => (
-          <option key={i} value={beer.id}>
-            {beer.name}
-          </option>
-        ))}
-      </select>
+      <h3>Edit Beer from Database</h3>
+      <div>
+        <label htmlFor="id">Beer to change: </label>
+        <select name="id" id="id" form="beerEdit" onChange={handleChange}>
+          <option value=""></option>
+          {data.map((beer, i) => (
+            <option key={i} value={beer.id}>
+              {beer.name}
+            </option>
+          ))}
+        </select>
+      </div>
       <form id="beerEdit" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={form.name}
-          onChange={(e) => updateField('name', e.target.value)}
-        />
-        <label htmlFor="style">Style</label>
-        <input
-          type="text"
-          name="style"
-          id="style"
-          value={form.style}
-          onChange={(e) => updateField('style', e.target.value)}
-        />
-        <label htmlFor="abv">ABV</label>
-        <input
-          type="number"
-          step=".1"
-          min="0"
-          id="abv"
-          name="abv"
-          value={form.abv}
-          onChange={(e) => updateField('abv', e.target.value)}
-        />
-        <label htmlFor="ibu">IBU</label>
-        <input
-          type="number"
-          min="0"
-          id="ibu"
-          name="ibu"
-          value={form.ibu}
-          onChange={(e) => updateField('ibu', e.target.value)}
-        />
-        <label htmlFor="color">Color</label>
-        <input
-          type="number"
-          max="40"
-          min="0"
-          step=".1"
-          id="color"
-          name="color"
-          value={form.color}
-          onChange={(e) => updateField('color', e.target.value)}
-        />
-        <button type="submit">Submit</button>
+        <div>
+          <label htmlFor="name">Name: </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={form.name}
+            onChange={(e) => updateField('name', e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="style">Style: </label>
+          <input
+            type="text"
+            name="style"
+            id="style"
+            value={form.style}
+            onChange={(e) => updateField('style', e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="abv">ABV: </label>
+          <input
+            type="number"
+            step=".1"
+            min="0"
+            id="abv"
+            name="abv"
+            value={form.abv}
+            onChange={(e) => updateField('abv', e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="ibu">IBU: </label>
+          <input
+            type="number"
+            min="0"
+            id="ibu"
+            name="ibu"
+            value={form.ibu}
+            onChange={(e) => updateField('ibu', e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="color">Color: </label>
+          <input
+            type="number"
+            max="40"
+            min="0"
+            step=".1"
+            id="color"
+            name="color"
+            value={form.color}
+            onChange={(e) => updateField('color', e.target.value)}
+          />
+        </div>
+        <button type="submit">Edit Beer</button>
       </form>
       <table>
         <thead>

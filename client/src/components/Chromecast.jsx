@@ -1,6 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
+import styled from 'styled-components'
 
 function Chromecast() {
+  const ChromecastContainer = styled.div`
+    display: flex;
+    padding-left: 8px;
+    margin-top: 15px;
+    padding-bottom: 7px;
+    justify-content: center;
+  `
+
   var applicationID = 'F7FD2183'
   var namespace = 'urn:x-cast:com.boombatower.chromecast-dashboard'
   var session = useRef()
@@ -89,10 +98,20 @@ function Chromecast() {
   }
 
   return (
-    <div>
-      {isCasting === false && <button onClick={connect}>Start</button>}
-      {isCasting === true && <button onClick={stopApp}>Stop</button>}
-    </div>
+    <ChromecastContainer>
+      {isCasting === false && (
+        <div>
+          <span>Cast: </span>
+          <button onClick={connect}>Start</button>
+        </div>
+      )}
+      {isCasting === true && (
+        <div>
+          <span>Cast: </span>
+          <button onClick={stopApp}>Stop</button>
+        </div>
+      )}
+    </ChromecastContainer>
   )
 }
 
