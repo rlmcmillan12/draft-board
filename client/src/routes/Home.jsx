@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import Footer from '../components/Footer'
+import PrimaryNav from '../components/PrimaryNav'
 
 const HomeContainer = styled.div`
   display: flex;
@@ -48,6 +50,7 @@ const Map = styled.div`
 function Home() {
   return (
     <HomeContainer>
+      <PrimaryNav />
       <p>
         &emsp; All Lager Brewing is a cozy quaint brewery made up in your own head. Imagine an ornate dark wood bar with
         a beautiful polished brewhouse to the side, and a friendly beertender pouring a frothy mug of lager.
@@ -84,6 +87,7 @@ function Home() {
           ></iframe>
         </Map>
       </DetailsDiv>
+      <Footer />
     </HomeContainer>
   )
 }

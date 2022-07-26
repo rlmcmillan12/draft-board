@@ -8,6 +8,8 @@ import DraftBoardUpdateBeer from '../components/DraftBoardUpdateBeer'
 import DraftBoardAddBeer from '../components/DraftBoardAddBeer'
 import NewUser from '../components/NewUser'
 import Chromecast from '../components/Chromecast'
+import PrimaryNav from '../components/PrimaryNav'
+import Footer from '../components/Footer'
 
 const DBContainer = styled.div`
   padding: 15px;
@@ -29,6 +31,7 @@ function DraftBoard() {
   if (isLoading || isError) return null
   return (
     <DBContainer>
+      <PrimaryNav />
       <h1>Hello {user.username}</h1>
       <h3>What's on draft?</h3>
       <Table>
@@ -71,6 +74,7 @@ function DraftBoard() {
         </>
       )}
       <Link to="/display">Display</Link>
+      <Footer />
     </DBContainer>
   )
 }

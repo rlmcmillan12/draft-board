@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import DisplayCard from '../components/DisplayCard'
+import Footer from '../components/Footer'
+import PrimaryNav from '../components/PrimaryNav'
 import { useGetDraftsQuery } from '../redux/services/drafts'
 
 const AboutContainer = styled.div`
@@ -10,17 +12,18 @@ const AboutContainer = styled.div`
   min-height: 100vh;
 `
 
-function About() {
+function Drafts() {
   const { data } = useGetDraftsQuery()
   if (!data) return null
   return (
-    // TODO: Edit About page
     <AboutContainer>
+      <PrimaryNav />
       {data?.map((draft, i) => (
         <DisplayCard key={i} draft={draft} />
       ))}
+      <Footer />
     </AboutContainer>
   )
 }
 
-export default About
+export default Drafts

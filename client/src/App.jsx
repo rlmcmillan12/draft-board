@@ -1,13 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Home from './routes/Home'
-import About from './routes/About'
-import PrimaryNav from './components/PrimaryNav'
+import Drafts from './routes/Drafts'
 import DraftBoard from './routes/DraftBoard'
 import Contact from './routes/Contact'
 import Login from './routes/Login'
 import Protected from './components/Protected'
-import Footer from './components/Footer'
 import Display from './routes/Display'
 
 const AppContainer = styled.div`
@@ -24,11 +22,10 @@ const AppContainer = styled.div`
 function App() {
   return (
     <AppContainer className="App">
-      <PrimaryNav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/drafts" element={<About />} />
+        <Route path="/drafts" element={<Drafts />} />
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/draftboard"
@@ -40,7 +37,6 @@ function App() {
         />
         <Route path="/display" element={<Display />} />
       </Routes>
-      <Footer />
     </AppContainer>
   )
 }

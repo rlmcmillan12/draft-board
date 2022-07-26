@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Footer from '../components/Footer'
+import PrimaryNav from '../components/PrimaryNav'
 
 const ContactContainer = styled.div`
   display: flex;
@@ -15,12 +17,14 @@ const ContactContainer = styled.div`
 function Contact() {
   return (
     <ContactContainer>
+      <PrimaryNav />
       <h1>Contact</h1>
       <p>&emsp;This is not a real business and there is nobody to contact about it</p>
       <p>
         &emsp;However if you like this design and would like to implement a web site/ draft board combination shoot an
         email to rlmcmillan12@gmail.com
       </p>
+      <Footer />
     </ContactContainer>
   )
 }
