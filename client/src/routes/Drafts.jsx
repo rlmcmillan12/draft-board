@@ -10,6 +10,10 @@ const AboutContainer = styled.div`
   justify-content: space-around;
   width: 100vw;
   min-height: 100vh;
+  @media (max-width: 720px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 function Drafts() {

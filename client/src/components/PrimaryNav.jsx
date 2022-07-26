@@ -18,6 +18,10 @@ const PrimaryNavContainer = styled.nav`
   & a:hover {
     color: red;
   }
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 const LinkDiv = styled.div`
   width: 33%;
@@ -25,6 +29,11 @@ const LinkDiv = styled.div`
   justify-content: space-around;
   align-self: flex-end;
   padding-bottom: 15px;
+  @media (max-width: 720px) {
+    width: 100%;
+    align-items: center;
+    margin-top: 15px;
+  }
 `
 const LogoDiv = styled.div`
   width: 33%;
@@ -43,6 +52,10 @@ const UserDiv = styled.div`
   justify-content: space-around;
   align-self: flex-end;
   padding-bottom: 15px;
+  @media (max-width: 720px) {
+    width: 100%;
+    align-items: center;
+  }
 `
 const LogOutButton = styled.button`
   background-color: transparent;

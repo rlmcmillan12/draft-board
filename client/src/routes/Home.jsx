@@ -6,7 +6,7 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 75%;
   & h2 {
   }
@@ -26,6 +26,10 @@ const DetailsDiv = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 const Details = styled.div``
 const Location = styled.div`
@@ -44,6 +48,14 @@ const Map = styled.div`
     width: 250px;
     height: 250px;
     border: none;
+    @media (max-width: 700px) {
+      margin-bottom: 30px;
+    }
+  }
+  & h3 {
+    @media (max-width: 700px) {
+      text-align: center;
+    }
   }
 `
 

@@ -11,6 +11,9 @@ const CardContainer = styled.div`
   border: 2px solid black;
   margin: 4px;
   background-image: linear-gradient(to bottom right, #1d1d1d9f, #00000013);
+  @media (max-width: 720px) {
+    width: 95%;
+  }
 `
 const Labels = styled.div`
   display: flex;
