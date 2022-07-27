@@ -10,6 +10,7 @@ const AboutContainer = styled.div`
   justify-content: space-around;
   width: 100vw;
   min-height: 100vh;
+  margin-top: 8px;
   @media (max-width: 720px) {
     flex-direction: column;
     align-items: center;
