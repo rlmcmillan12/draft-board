@@ -18,7 +18,7 @@ const PrimaryNavContainer = styled.nav`
   & a:hover {
     color: red;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 720px) {
     flex-direction: column;
     align-items: center;
   }
