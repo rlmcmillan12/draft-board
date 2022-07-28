@@ -1,5 +1,9 @@
 # Draft Board
 
+https://user-images.githubusercontent.com/102312639/181582794-a90b08fa-0012-4d4a-b214-70879638c353.mp4
+
+
+
 Draft board is a concept that combines an informational public website for a brewery or taproom, and an authenticated back-end. The back end allows the user to access a beer library and displaying a draft board on a TV through Chromecast.
 
 ---
