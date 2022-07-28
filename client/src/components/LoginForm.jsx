@@ -4,18 +4,18 @@ import styled from 'styled-components'
 import { useLoginMutation } from '../redux/services/user'
 
 const LoginFormContainer = styled.div`
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   display: flex;
-  margin-top: 20px;
+  margin-top: 100px;
   flex-direction: column;
   & form {
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
   }
   & div {
     display: flex;
-    justify-content: space-around;
+    margin: 10px;
   }
   & button {
     align-self: center;
@@ -48,17 +48,17 @@ function LoginForm() {
     <LoginFormContainer>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">
-            Username:{' '}
-            <input
-              type="text"
-              name="username"
-              id="username"
-              required
-              value={form.username}
-              onChange={(e) => updateField('username', e.target.value)}
-            />
-          </label>
+          <label htmlFor="username">Username: </label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+            value={form.username}
+            onChange={(e) => updateField('username', e.target.value)}
+          />
+        </div>
+        <div>
           <label htmlFor="password">
             Password:{' '}
             <input
