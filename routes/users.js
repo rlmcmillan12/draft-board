@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
-const models = require('../models')
 const ShortUniqueId = require('short-unique-id')
+const models = require('../models')
 
 // GET /api/v1/users/register
 router.post('/register', async (req, res) => {

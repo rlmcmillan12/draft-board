@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import { useGetDraftsQuery } from '../redux/services/drafts'
 import { useGetCurrentUserQuery } from '../redux/services/user'
 import DraftBoardEditDraft from '../components/DraftBoardEditDraft'
@@ -71,7 +71,18 @@ function DraftBoard() {
         </Table>
         <Chromecast />
 
-        {user.admin === 'user' && <></>}
+        {user.admin === 'user' && (
+          <>
+            <Tabs>
+              <TabList>
+                <Tab mx={10}>Update Draft Board</Tab>
+              </TabList>
+              <TabPanels>
+                <DraftBoardEditDraft />
+              </TabPanels>
+            </Tabs>
+          </>
+        )}
         {user.admin === 'manager' && (
           <>
             <Tabs>
